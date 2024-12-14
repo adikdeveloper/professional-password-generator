@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Professional Parol Generatori</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Professional Parol Generatori</h1>
+        
+        <div class="password-box">
+            <input type="text" id="password" readonly>
+            <span class="copy-btn" onclick="copyPassword()">📋</span>
+        </div>
+
+        <div class="settings">
+            <div class="setting">
+                <label>Parol uzunligi: <span id="lengthValue">12</span></label>
+                <input type="range" min="8" max="30" value="12" id="length">
+            </div>
+            <div class="setting">
+                <label>Katta harflar</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="setting">
+                <label>Kichik harflar</label>
+                <input type="checkbox" id="lowercase" checked>
+            </div>
+            <div class="setting">
+                <label>Raqamlar</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="setting">
+                <label>Maxsus belgilar</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+        </div>
+
+        <button onclick="generatePassword()">Parol Yaratish</button>
+        
+        <div class="strength-meter">
+            <div id="strength-bar"></div>
+        </div>
+
+        <div class="detailed-strength">
+            <h2>Parol Kuchi Tahlili</h2>
+            <div class="strength-criteria" id="strengthCriteria">
+                <div class="criteria-item" id="lengthCriteria">Uzunlik (minimum 8 ta belgi)</div>
+                <div class="criteria-item" id="upperCriteria">Katta harflar</div>
+                <div class="criteria-item" id="lowerCriteria">Kichik harflar</div>
+                <div class="criteria-item" id="numberCriteria">Raqamlar</div>
+                <div class="criteria-item" id="symbolCriteria">Maxsus belgilar</div>
+                <div class="criteria-item" id="sequenceCriteria">Ketma-ket belgilar yo'q</div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button onclick="saveToPDF()">PDF da Saqlash</button>
+            <button onclick="showSMSDialog()">SMS Yuborish</button>
+        </div>
+
+        <div id="smsDialog" style="display: none;">
+            <input type="tel" id="phoneNumber" placeholder="Telefon raqami (+998...)">
+            <button onclick="sendSMS()">Yuborish</button>
+            <div class="sms-status" id="smsStatus"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
