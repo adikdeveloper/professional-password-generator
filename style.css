@@ -74,6 +74,7 @@ h1, h2 {
 
 .setting input[type="range"] {
     width: 50%;
+    cursor: pointer;
 }
 
 button {
